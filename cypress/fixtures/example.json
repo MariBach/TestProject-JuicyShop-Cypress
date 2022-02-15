@@ -1,0 +1,47 @@
+{
+  "name": "Using fixtures to represent data",
+  "email": [
+    "user1@test.com", 
+    "user2@test.com",
+    "user3@test.com",
+    "user4@test.com",
+    "user5@test.com",
+    "user6@test.com",
+    "user7@test.com",
+    "user8@test.com",
+    "user9@test.com",
+    "user10@test.com"
+  ],
+  "password": [
+    "12345",
+    "qwerty",
+    "QWERTY",
+    "12345678",
+    "Pass1234", 
+    "Pass1235",
+    "Pass1236",
+    "Pass1237",
+    "Pass1238",
+    "Pass1239"
+  ],
+  "invalidEmail": "user.test.com",
+  "invalidPassword": "Pass",
+  "question": [
+    "Your eldest siblings middle name?",
+    "Mother's maiden name?",
+    "Mother's birth date? (MM/DD/YY)",
+    "Father's birth date? (MM/DD/YY)",
+    "Maternal grandmother's first name?",
+    "Paternal grandmother's first name?",
+    "Name of your favorite pet?",
+    "Last name of dentist when you were a teenager? (Do not include 'Dr.')",
+    "Your ZIP/postal code when you were a teenager?",
+    "Company you first work for as an adult?",
+    "Your favorite book?",
+    "Your favorite movie?",
+    "Number of one of your customer or ID cards?",
+    "What's your favorite place to go hiking?"
+  ],
+  "answer": "some text",
+  "body": "Fixtures are a great way to mock data for responses to routes"
+}
