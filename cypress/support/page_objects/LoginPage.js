@@ -1,10 +1,10 @@
-class LoginPage
+export class LoginPage
 {
     getNavigateToRegister()
     {
         return cy.get('a[routerlink="/register"]')
     }
-    getRegistrationConfirmationMsg()
+    getRegistrationConfirmationMessage()
     {
         return cy.get('span.mat-simple-snack-bar-content')
     }
@@ -40,7 +40,7 @@ class LoginPage
     {
         return cy.get('#loginButtonGoogle')
     }
-    getInvalidCredentoalsMsg()
+    getInvalidCredentialsMessage()
     {
         return cy.get('div.error.ng-star-inserted')
     }
@@ -56,19 +56,18 @@ class LoginPage
     {
         return cy.get('#securityAnswer')
     }
-    getResetPasswordBtn()
+    getResetPasswordButton()
     {
         return cy.get('#resetButton')
     }
-    getConfirmationMsg()
+    getConfirmationMessage()
     {
         return cy.get('div.confirmation')
     }
     navigateToRegistration()
     {
-        const link = cy.get('a[routerlink="/register"]')
-        link.click({forse:true})
+        cy.get('a[routerlink="/register"]').click({forse:true})
     }
 
 }
-export default LoginPage;
+export const onLoginPage = new LoginPage();

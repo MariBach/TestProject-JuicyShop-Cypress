@@ -1,8 +1,8 @@
-class ExternalPage
+export class ExternalPage
 {
     getGoogleAccount()
     {
         return cy.get('div[title="Google"]')
     }
 }
-export default ExternalPage;
+export const onExternalPage = new ExternalPage();

@@ -1,6 +1,6 @@
-class HomePage
+export class HomePage
 {
-    getWelcomeBannerCloseBtn()
+    getWelcomeBannerCloseButton()
     {
         return cy.get('button[aria-label="Close Welcome Banner"]')
     }
@@ -31,24 +31,21 @@ class HomePage
             cy.log(element.text())
         })
     }
-    getAddToCartBtn()
+    getAddToCartButton()
     {
         return cy.get('button[aria-label="Add to Basket"]')
     }
     closeWelcomeBanner()
     {
-        const button = cy.get('button[aria-label="Close Welcome Banner"]')
-        button.click()
+        cy.get('button[aria-label="Close Welcome Banner"]').click()
     }
     navigateToAccountMenu()
     {
-        const button = cy.get('#navbarAccount')
-        button.click()
+        cy.get('#navbarAccount').click()
     }
     navigateToLogin()
     {
-        const button = cy.get('#navbarLoginButton')
-        button.click({forse:true})
+        cy.get('#navbarLoginButton').click({forse:true})
     }
 }
-export default HomePage;
+export const onHomePage = new HomePage();

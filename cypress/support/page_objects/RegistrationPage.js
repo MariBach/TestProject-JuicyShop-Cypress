@@ -1,4 +1,4 @@
-class RegistrationPage
+export class RegistrationPage
 {
     getEmail()
     {
@@ -12,11 +12,11 @@ class RegistrationPage
     {
         return cy.get('#repeatPasswordControl')
     }
-    getShowPswdAdvice()
+    getShowPasswordAdvice()
     {
         return cy.get('.mat-slide-toggle-thumb')
     }
-    getPswdAdviceList()
+    getPasswordAdviceList()
     {
         return cy.get('div[class^="info-row"]')
     }
@@ -24,31 +24,31 @@ class RegistrationPage
     {
         return cy.get('mat-password-strength-info')
     }
-    getPswdAdviseIdentificator()
+    getPasswordAdviseIdentificator()
     {
         return cy.get('mat-card-content div mat-icon')
     }
-    getSecQuestion()
+    getSecurityQuestion()
     {
         return cy.get('.mat-select-placeholder')
     }
-    getChooseSecQuestion()
+    getChooseSecurityQuestion()
     {
         return cy.get('span.mat-option-text')
     }
-    getSecAnswer()
+    getSecurityAnswer()
     {
         return cy.get('#securityAnswerControl')
     }
-    getRegisterBtn()
+    getRegisterButton()
     {
         return cy.get('#registerButton')
     }
-    getInvalidInputMsg()
+    getInvalidInputMessage()
     {
         return cy.get('mat-error')
     }
-    getRegistrationErrorMsg()
+    getRegistrationErrorMessage()
     {
         return cy.get('.error')
     }
@@ -68,8 +68,7 @@ class RegistrationPage
     }
     moveToPasswordField()
     {
-        const field= cy.get('#passwordControl')
-        field.click()
+        cy.get('#passwordControl').click()
     }
     fillPassword(password)
     {
@@ -80,8 +79,7 @@ class RegistrationPage
     }
     moveToRepeatPasswordField()
     {
-        const field = cy.get('#repeatPasswordControl')
-        field.click()
+        cy.get('#repeatPasswordControl').click()
     }
     repeatPassword(password)
     {
@@ -99,8 +97,7 @@ class RegistrationPage
     }
     openSecurityQuestionList()
     {
-        const list =cy.get('.mat-select-placeholder')
-        list.click()
+        cy.get('.mat-select-placeholder').click()
     }
     chooseSecurityQuestion(question)
     {
@@ -112,24 +109,21 @@ class RegistrationPage
             }
         })
     }
-    getSecQuestionField()
+    getSecurityQuestionField()
     {
         return cy.get('div[class^="mat-select-value"]')
     }
     submitRegistration()
     {
-        const button = cy.get('#registerButton')
-        button.click()
+        cy.get('#registerButton').click()
     }
     returnToLoginPage()
     {
-        const link = cy.get('#alreadyACustomerLink')
-        link.click()
+        cy.get('#alreadyACustomerLink').click()
     }
     showPasswordAdvice()
     {
-        const checkbox = cy.get('.mat-slide-toggle-thumb')
-        checkbox.click()
+        cy.get('.mat-slide-toggle-thumb').click()
     }
 }
-export default RegistrationPage;
+export const onRegistrationPage = new RegistrationPage();

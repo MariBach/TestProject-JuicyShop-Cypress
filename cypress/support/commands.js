@@ -23,7 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add('getPswdAdviceMatch', ()=>{
+Cypress.Commands.add('getPasswordAdviceMatch', ()=>{
     let matchItems = 0
     cy.get('.mat-card-content > div > .mat-icon').each(($el, index, $list)=>
     {        
