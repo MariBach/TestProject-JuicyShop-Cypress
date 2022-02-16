@@ -1,51 +1,59 @@
-export class HomePage
-{
-    getWelcomeBannerCloseButton()
-    {
+export class HomePage {
+    getWelcomeBannerCloseButton(){
         return cy.get('button[aria-label="Close Welcome Banner"]')
     }
-    getAccount()
-    {
+
+    getAccount(){
         return cy.get('#navbarAccount')
     }
-    getNavigateToLogin()
-    {
+
+    getNavigateToLogin(){
         return cy.get('#navbarLoginButton')
     }
-    getNavigateToRegister()
-    {
+
+    getNavigateToRegister(){
         return cy.get('a[routerlink="/register"]')
     }
-    getNavigateToCart()
-    {
+
+    getNavigateToCart(){
         return cy.get('button[aria-label$="cart"]')        
     }
-    getDismissCookies()
-    {
+
+    getDismissCookies(){
         return cy.get('a.cc-btn.cc-dismiss')
     }
-    getDisplayedItemsOnPage()
-    {
-        return cy.get('span[class*="min-line"]').then(function(element)
-        {
+
+    getDisplayedItemsOnPage(){
+        return cy.get('span[class*="min-line"]').then(function(element){
             cy.log(element.text())
         })
     }
-    getAddToCartButton()
-    {
+
+    getAddToCartButton(){
         return cy.get('button[aria-label="Add to Basket"]')
     }
-    closeWelcomeBanner()
-    {
+
+    closeWelcomeBanner(){
         cy.get('button[aria-label="Close Welcome Banner"]').click()
     }
-    navigateToAccountMenu()
-    {
+
+    dismissCookies(){
+        cy.get('a.cc-btn.cc-dismiss').click()
+    }
+
+    navigateToAccountMenu(){
         cy.get('#navbarAccount').click()
     }
-    navigateToLogin()
-    {
-        cy.get('#navbarLoginButton').click({forse:true})
+
+    navigateToLogin(){
+        cy.get('#navbarLoginButton').click({force: true})
+    }
+
+    openLoginPage(){
+        this.closeWelcomeBanner()
+        this.dismissCookies()
+        this.navigateToAccountMenu()
+        this.navigateToLogin()
     }
 }
 export const onHomePage = new HomePage();

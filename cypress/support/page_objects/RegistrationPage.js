@@ -1,128 +1,112 @@
-export class RegistrationPage
-{
-    getEmail()
-    {
+export class RegistrationPage {
+    getEmail(){
         return cy.get('#emailControl')
     }
-    getPassword()
-    {
+
+    getPassword(){
         return cy.get('#passwordControl')
     }
-    getRepeatPassword()
-    {
+
+    getRepeatPassword(){
         return cy.get('#repeatPasswordControl')
     }
-    getShowPasswordAdvice()
-    {
+
+    getShowPasswordAdvice(){
         return cy.get('.mat-slide-toggle-thumb')
     }
-    getPasswordAdviceList()
-    {
+
+    getPasswordAdviceList(){
         return cy.get('div[class^="info-row"]')
     }
-    getPasswordStrengthInfo()
-    {
+
+    getPasswordStrengthInfo(){
         return cy.get('mat-password-strength-info')
     }
-    getPasswordAdviseIdentificator()
-    {
+
+    getPasswordAdviseIdentificator(){
         return cy.get('mat-card-content div mat-icon')
     }
-    getSecurityQuestion()
-    {
+
+    getSecurityQuestion(){
         return cy.get('.mat-select-placeholder')
     }
-    getChooseSecurityQuestion()
-    {
+
+    getChooseSecurityQuestion(){
         return cy.get('span.mat-option-text')
     }
-    getSecurityAnswer()
-    {
+
+    getSecurityAnswer(){
         return cy.get('#securityAnswerControl')
     }
-    getRegisterButton()
-    {
+
+    getRegisterButton(){
         return cy.get('#registerButton')
     }
-    getInvalidInputMessage()
-    {
+
+    getInvalidInputMessage(){
         return cy.get('mat-error')
     }
-    getRegistrationErrorMessage()
-    {
+
+    getRegistrationErrorMessage(){
         return cy.get('.error')
     }
-    getReturnToLoginPage()
-    {
+
+    getReturnToLoginPage(){
         return cy.get('#alreadyACustomerLink')
     }
     getPageName(){
         return cy.get('h1')
     }
-    fillEmail(email)
-    {
-        const field = cy.get('#emailControl')
-        field.clear()
-        field.type(email)
-        return this
+
+    fillEmail(email){
+        cy.get('#emailControl').clear().type(email)
     }
-    moveToPasswordField()
-    {
+
+    moveToPasswordField(){
         cy.get('#passwordControl').click()
     }
-    fillPassword(password)
-    {
-        const field = cy.get('#passwordControl')
-        field.clear()
-        field.type(password)
-        return this
+
+    fillPassword(password){
+        cy.get('#passwordControl').clear().type(password)
     }
-    moveToRepeatPasswordField()
-    {
+
+    moveToRepeatPasswordField(){
         cy.get('#repeatPasswordControl').click()
     }
-    repeatPassword(password)
-    {
-        const field = cy.get('#repeatPasswordControl')
-        field.clear()
-        field.type(password)
-        return this   
+
+    repeatPassword(password){
+        cy.get('#repeatPasswordControl').clear().type(password)
     }
-    fillSecurityAnswer(answer)
-    {
-        const field = cy.get('#securityAnswerControl')
-        field.clear()
-        field.type(answer)
-        return this
+
+    fillSecurityAnswer(answer){
+        cy.get('#securityAnswerControl').clear().type(answer)
     }
-    openSecurityQuestionList()
-    {
+
+    openSecurityQuestionList(){
         cy.get('.mat-select-placeholder').click()
     }
-    chooseSecurityQuestion(question)
-    {
-        cy.get('.mat-option').each(($el, index, $list) =>
-        {
-            if ($el.text().includes(question))
-            {
+
+    chooseSecurityQuestion(question){
+        cy.get('.mat-option').each(($el, index, $list) =>{
+            if ($el.text().includes(question)){
                 cy.get('.mat-option-text').eq(index).click()
             }
         })
     }
-    getSecurityQuestionField()
-    {
+
+    getSecurityQuestionField(){
         return cy.get('div[class^="mat-select-value"]')
     }
-    submitRegistration()
-    {
+
+    submitRegistration(){
         cy.get('#registerButton').click()
     }
-    returnToLoginPage()
-    {
+
+    returnToLoginPage(){
         cy.get('#alreadyACustomerLink').click()
     }
-    showPasswordAdvice()
-    {
+    
+    showPasswordAdvice(){
         cy.get('.mat-slide-toggle-thumb').click()
     }
 }

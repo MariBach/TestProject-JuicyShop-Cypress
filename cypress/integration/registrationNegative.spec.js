@@ -4,7 +4,7 @@ import { onHomePage } from "../support/page_objects/homePage.js"
 import { onLoginPage } from "../support/page_objects/loginPage.js"
 import { randomIndex, randomEmail } from "../support/functions.js"
 
-describe ('Registration check', function(){
+describe ('Negative registration check', function(){
     beforeEach(function(){
         cy.fixture('example').then(function(data){
            this.data = data;

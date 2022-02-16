@@ -1,7 +1,5 @@
-export class ExternalPage
-{
-    getGoogleAccount()
-    {
+export class ExternalPage {
+    getGoogleAccount()     {
         return cy.get('div[title="Google"]')
     }
 }

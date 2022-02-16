@@ -1,73 +1,77 @@
-export class LoginPage
-{
-    getNavigateToRegister()
-    {
+export class LoginPage {
+    
+    getNavigateToRegister(){
         return cy.get('a[routerlink="/register"]')
     }
-    getRegistrationConfirmationMessage()
-    {
+
+    getRegistrationConfirmationMessage(){
         return cy.get('span.mat-simple-snack-bar-content')
     }
-    getPageName()
-    {
+
+    getPageName(){
         return cy.get('h1')
     }
-    getEmail()
-    {
+
+    getEmail(){
         return cy.get('#email')
     }
-    getPassword()
-    { 
+
+    getPassword(){ 
         return cy.get('#password')
     }
-    getLoginButton()
-    {
+
+    getLoginButton(){
         return cy.get('#loginButton')
     }
-    getForgotPassword()
-    {
+
+    getForgotPassword(){
         return cy.get('a[routerlink="/forgot-password"]')
     }
-    getShowPassword()
-    {
+
+    getShowPassword(){
         return cy.get('button[aria-label$="password"]')
     }
-    getHidePassword()
-    {
+
+    getHidePassword(){
         return cy.get('button[aria-label*=" hide"]')
     }
-    getLoginWithGoogle()
-    {
+
+    getLoginWithGoogle(){
         return cy.get('#loginButtonGoogle')
     }
-    getInvalidCredentialsMessage()
-    {
+
+    getInvalidCredentialsMessage(){
         return cy.get('div.error.ng-star-inserted')
     }
-    getNewPassword()
-    {
-        return cy.get('#newPassword')
-    }
-    getRepeatNewPassword()
-    {
-        return cy.get('#newPasswordRepeat')
-    }
-    getSecurityAnswer()
-    {
-        return cy.get('#securityAnswer')
-    }
-    getResetPasswordButton()
-    {
-        return cy.get('#resetButton')
-    }
-    getConfirmationMessage()
-    {
-        return cy.get('div.confirmation')
-    }
-    navigateToRegistration()
-    {
-        cy.get('a[routerlink="/register"]').click({forse:true})
+
+    fillEmail(email){
+        cy.get('#email').clear().type(email)
     }
 
+    fillPassword(password){
+        cy.get('#password').clear().type(password)
+    }
+
+    navigateToRegistration(){
+        cy.get('a[routerlink="/register"]').click({force: true})
+    }
+
+    submitLogin(){
+        cy.get('#loginButton').click()
+    }
+
+    login(email, password){
+        this.fillEmail(email)
+        this.fillPassword(password)
+        this.submitLogin()
+    }
+
+    showPassword(){
+        cy.get('button[aria-label$="password"]').click()
+    }
+
+    navigateToForgotPasswordPage(){
+        cy.get('a[routerlink="/forgot-password"]').click({force: true})
+    }
 }
 export const onLoginPage = new LoginPage();

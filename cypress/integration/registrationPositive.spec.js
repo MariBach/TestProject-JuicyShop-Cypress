@@ -4,7 +4,7 @@ import { onHomePage } from "../support/page_objects/homePage.js"
 import { onLoginPage } from "../support/page_objects/loginPage.js"
 import { randomIndex, randomEmail } from "../support/functions.js"
 
-describe ('Registration check', function(){
+describe ('Positive registration check', function(){
     beforeEach (function(){
         cy.fixture('example').then(function(data){
            this.data = data;
@@ -22,7 +22,7 @@ describe ('Registration check', function(){
         onRegistrationPage.chooseSecurityQuestion(this.data.question[randomIndex])
         onRegistrationPage.fillSecurityAnswer(this.data.answer)
         onRegistrationPage.submitRegistration()
-        onLoginPage.getRegistrationConfirmationMessage().should('include.text', this.data.notification)
+        onLoginPage.getRegistrationConfirmationMessage().should('include.text', this.data.confirmation[0])
     })
 
     it('User can leave registration page', function(){        

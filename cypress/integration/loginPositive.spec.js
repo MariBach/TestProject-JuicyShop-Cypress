@@ -2,6 +2,7 @@
 import { onRegistrationPage } from "../support/page_objects/registrationPage.js"
 import { onHomePage } from "../support/page_objects/homePage.js"
 import { onLoginPage } from "../support/page_objects/loginPage.js"
+import { onForgotPage } from "../support/page_objects/forgotPasswordPage.js"
 import { randomIndex, randomEmail } from "../support/functions.js"
 
 describe ('Login check', function(){
@@ -14,7 +15,7 @@ describe ('Login check', function(){
     })
 
     it('User successfully logged in', function(){
-        onLoginPage.login(this.data.email[0], this.data.password[0])
+        onLoginPage.login(this.data.email[0], this.data.password[1])
         onHomePage.getNavigateToCart().should('be.visible')
     })
 
@@ -26,4 +27,19 @@ describe ('Login check', function(){
         onLoginPage.getPassword().should('have.attr', 'type', 'text')        
     })
 
+    it('Check "Forgot password" option', function(){     
+        onLoginPage.navigateToForgotPasswordPage({force: true})
+        onLoginPage.getPageName().should('include.text', "Forgot Password")
+        onForgotPage.fillEmail(this.data.email[0])
+        onForgotPage.fillSecurityAnswer(this.data.answer)
+        onForgotPage.fillNewPassword(this.data.password[1])
+        onForgotPage.repeatNewPassword(this.data.password[1])
+        onForgotPage.resetPassword()
+        onForgotPage.getConfirmationMessage().should('include.text', this.data.confirmation[1])
+    })
+
+    it('User successfully changed the password', function(){
+        onLoginPage.login(this.data.email[0], this.data.password[1])
+        onHomePage.getNavigateToCart().should('be.visible')
+    })
 })  

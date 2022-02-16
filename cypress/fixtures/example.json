@@ -50,5 +50,8 @@
     "Password must be 5-40 characters long.",
     "Email must be unique"    
   ],
-  "notification": "Registration completed successfully. You can now log in."  
+  "confirmation": [
+    "Registration completed successfully. You can now log in.",
+    "Your password was successfully changed."
+  ]  
 }
