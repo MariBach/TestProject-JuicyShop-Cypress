@@ -1,5 +1,5 @@
 {
-  "name": "Using fixtures to represent data",
+  "name": "",
   "email": [
     "user1@test.com", 
     "user2@test.com",
@@ -43,5 +43,12 @@
     "What's your favorite place to go hiking?"
   ],
   "answer": "some text",
-  "body": "Fixtures are a great way to mock data for responses to routes"
+  "body": "",
+  "error": [
+    "Email address is not valid.",
+    "Passwords do not match",
+    "Password must be 5-40 characters long.",
+    "Email must be unique"    
+  ],
+  "notification": "Registration completed successfully. You can now log in."  
 }
