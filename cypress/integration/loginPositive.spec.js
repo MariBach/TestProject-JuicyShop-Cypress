@@ -10,7 +10,7 @@ describe ('Login check', function(){
         cy.fixture('example').then(function(data){
            this.data = data;
         })
-        cy.visit(Cypress.env("url"))
+        cy.openHomePage()
         onHomePage.openLoginPage()
     })
 

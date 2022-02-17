@@ -25,22 +25,23 @@ export class ForgotPage {
     }
 
     fillEmail(email){
-        cy.get('#email').clear().type(email)
+        this.getEmail().clear().type(email)
     }
 
     fillNewPassword(password){
-        cy.get('#newPassword').type(password)
+        this.getNewPassword().type(password)
     }
 
     repeatNewPassword(password){
-        cy.get('#newPasswordRepeat').type(password)
+        this.getRepeatNewPassword().type(password)
     }
 
     resetPassword(){
-        cy.get('#resetButton').click()
+        this.getResetPasswordButton().click()
     }
+
     fillSecurityAnswer(answer){
-        cy.get('#securityAnswer').type(answer)
+        this.getSecurityAnswer().type(answer)
     }
 }
 export const onForgotPage = new ForgotPage();

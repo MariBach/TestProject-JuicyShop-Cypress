@@ -9,9 +9,9 @@ describe ('Positive registration check', function(){
         cy.fixture('example').then(function(data){
            this.data = data;
         })
-        cy.visit(Cypress.env("url"))
+        cy.openHomePage()
         onHomePage.openLoginPage()
-        onLoginPage.navigateToRegistration()
+        onLoginPage.navigateToRegistrationPage()
     })
 
     it('User can register with valid credentials', function(){        

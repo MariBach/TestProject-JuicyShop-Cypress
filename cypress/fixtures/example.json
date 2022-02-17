@@ -48,7 +48,10 @@
     "Email address is not valid.",
     "Passwords do not match",
     "Password must be 5-40 characters long.",
-    "Email must be unique"    
+    "Email must be unique",
+    "Invalid email or password.",
+    "Please provide an email address.",
+    "Please provide a password."    
   ],
   "confirmation": [
     "Registration completed successfully. You can now log in.",
