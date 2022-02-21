@@ -27,14 +27,26 @@ Cypress.Commands.add('openHomePage', ()=>{
     cy.visit(Cypress.env("url"))
 })
 
-Cypress.Commands.add('getPasswordAdviceMatch', ()=>{
-    let matchItems = 0
-    cy.get('.mat-card-content > div > .mat-icon').each(($el, index, $list)=>
-    {        
-        if ($el.text() === 'done')
-        {
-            matchItems = matchItems + 1
-        }        
-     return matchItems
-    })
+Cypress.Commands.add('createUser', (user)=>{
+    cy.request({
+        method: 'POST',
+        url: 'http://localhost:3000/api/Users/',
+        body: {
+            email: "user1@test.com",
+            password: "Pass1234",
+            passwordRepeat: "Pass1234",
+            securityAnswer: "some text",
+            securityQuestion: {id: 5, question: "Maternal grandmother's first name?"}            
+        },
+        failOnStatusCode: false
+    }).then((resp) => {
+        cy.request({
+            method: 'POST',
+            url: 'http://localhost:3000/api/Users/',
+            header: { Authorization: 'Bearer ' + resp.body.token },            
+            body: user,
+        })
+    })    
 })
+
+

@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "Mari",
   "email": [
     "user1@test.com", 
     "user2@test.com",
@@ -13,19 +13,20 @@
     "user10@test.com"
   ],
   "password": [
-    "12345",
-    "qwerty",
-    "QWERTY",
-    "12345678",
     "Pass1234", 
     "Pass1235",
     "Pass1236",
     "Pass1237",
     "Pass1238",
-    "Pass1239"
+    "Pass1239",
+    "12345",
+    "qwerty",
+    "QWERTY",
+    "12345678"
   ],
-  "invalidEmail": "user.test.com",
-  "invalidPassword": "Pass",
+  "toLongPassword": "01234567890123456789012345678901234567890",
+  "invalidEmail": "test.test",
+  "invalidPassword": "1234",
   "question": [
     "Your eldest siblings middle name?",
     "Mother's maiden name?",
@@ -43,18 +44,18 @@
     "What's your favorite place to go hiking?"
   ],
   "answer": "some text",
-  "body": "",
-  "error": [
+  "errorRegistrationPage": [
     "Email address is not valid.",
     "Passwords do not match",
     "Password must be 5-40 characters long.",
-    "Email must be unique",
+    "Email must be unique"      
+  ],
+  "errorLoginPage":[
     "Invalid email or password.",
     "Please provide an email address.",
-    "Please provide a password."    
+    "Please provide a password.",
+    "Password must be 5-40 characters long." 
   ],
-  "confirmation": [
-    "Registration completed successfully. You can now log in.",
-    "Your password was successfully changed."
-  ]  
+  "confirmationRegistration": "Registration completed successfully. You can now log in.",
+  "confirmationForgotPassword": "Your password was successfully changed."
 }

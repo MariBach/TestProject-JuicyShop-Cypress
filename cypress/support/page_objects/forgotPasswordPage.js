@@ -37,11 +37,11 @@ export class ForgotPage {
     }
 
     resetPassword(){
-        this.getResetPasswordButton().click()
+        this.getResetPasswordButton().click({force: true})
     }
 
     fillSecurityAnswer(answer){
-        this.getSecurityAnswer().type(answer)
+        this.getSecurityAnswer().clear().type(answer)
     }
 }
 export const onForgotPage = new ForgotPage();

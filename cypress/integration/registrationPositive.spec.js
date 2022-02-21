@@ -6,7 +6,7 @@ import { randomIndex, randomEmail } from "../support/functions.js"
 
 describe ('Positive registration check', function(){
     beforeEach (function(){
-        cy.fixture('example').then(function(data){
+        cy.fixture('data').then(function(data){
            this.data = data;
         })
         cy.openHomePage()
@@ -22,7 +22,7 @@ describe ('Positive registration check', function(){
         onRegistrationPage.chooseSecurityQuestion(this.data.question[randomIndex])
         onRegistrationPage.fillSecurityAnswer(this.data.answer)
         onRegistrationPage.submitRegistration()
-        onLoginPage.getRegistrationConfirmationMessage().should('include.text', this.data.confirmation[0])
+        onLoginPage.getRegistrationConfirmationMessage().should('include.text', this.data.confirmationRegistration)
     })
 
     it('User can leave registration page', function(){        
@@ -42,8 +42,8 @@ describe ('Positive registration check', function(){
 
     it('Requirement "contains at least one lower character" is marked as "done" in passwords recomendations', function(){
         onRegistrationPage.fillEmail(randomEmail)
-        onRegistrationPage.fillPassword(this.data.password[1])
-        onRegistrationPage.repeatPassword(this.data.password[1])
+        onRegistrationPage.fillPassword(this.data.password[7])
+        onRegistrationPage.repeatPassword(this.data.password[7])
         onRegistrationPage.showPasswordAdvice()        
         onRegistrationPage.getPasswordAdviceList().should('have.length', '5')
         onRegistrationPage.getPasswordAdviseIdentificator().eq(0).should('have.text', 'done')
@@ -51,8 +51,8 @@ describe ('Positive registration check', function(){
 
     it('Requirement "contains at least one upper character" is marked as "done" in passwords recomendations', function(){
         onRegistrationPage.fillEmail(randomEmail)
-        onRegistrationPage.fillPassword(this.data.password[2])
-        onRegistrationPage.repeatPassword(this.data.password[2])
+        onRegistrationPage.fillPassword(this.data.password[8])
+        onRegistrationPage.repeatPassword(this.data.password[8])
         onRegistrationPage.showPasswordAdvice()        
         onRegistrationPage.getPasswordAdviceList().should('have.length', '5')
         onRegistrationPage.getPasswordAdviseIdentificator().eq(1).should('have.text', 'done')
@@ -60,8 +60,8 @@ describe ('Positive registration check', function(){
 
     it('Requirement "contains at least 8 characters" is marked as "done" in passwords recomendations', function(){
         onRegistrationPage.fillEmail(randomEmail)
-        onRegistrationPage.fillPassword(this.data.password[3])
-        onRegistrationPage.repeatPassword(this.data.password[3])
+        onRegistrationPage.fillPassword(this.data.password[9])
+        onRegistrationPage.repeatPassword(this.data.password[9])
         onRegistrationPage.showPasswordAdvice()        
         onRegistrationPage.getPasswordAdviceList().should('have.length', '5')        
         onRegistrationPage.getPasswordAdviseIdentificator().eq(2).should('have.text', 'done')
