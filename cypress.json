@@ -1,7 +1,11 @@
 {
-    "defaultCommandTimeout": 10000,
-    "pageLoadTimeout": 30000,
-    "env": {
-      "url": "http://localhost:3000/#/"
-    }    
+  "defaultCommandTimeout": 10000,
+  "pageLoadTimeout": 30000,
+  "env": {
+    "url": "http://localhost:3000/#/",
+    "login": "user1@test.com",
+    "password": "Pass1234",
+    "securityAnswer": "some text"
+  },
+  "projectId": "c8firx"
 }

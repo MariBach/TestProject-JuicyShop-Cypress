@@ -3,7 +3,7 @@ import { onRegistrationPage } from "../support/page_objects/registrationPage.js"
 import { onHomePage } from "../support/page_objects/homePage.js"
 import { onLoginPage } from "../support/page_objects/loginPage.js"
 import { onForgotPage } from "../support/page_objects/forgotPasswordPage.js"
-import { randomIndex, randomEmail } from "../support/functions.js"
+import { randomIndex } from "../support/functions.js"
 
 describe ('Login check', function(){
     beforeEach (function(){
@@ -60,8 +60,6 @@ describe ('Login check', function(){
     it('The "Enter" key of the keyboard is working correctly', function(){
         onLoginPage.fillEmail(this.data.email[0])
         onLoginPage.fillPasswordAndPressEnter(this.data.password[0])
-        //onLoginPage.getPassword().type(this.data.password[3]).type('{enter}') - є питання по цим двом рядкам, залишила для обговорення
-        //onLoginPage.fillPassword(this.data.password[3]).type('{enter}')
         onHomePage.getNavigateToCart().should('be.visible')
     })
 })  

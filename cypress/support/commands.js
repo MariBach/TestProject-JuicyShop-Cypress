@@ -23,6 +23,8 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
 Cypress.Commands.add('openHomePage', ()=>{
     cy.visit(Cypress.env("url"))
 })
@@ -32,10 +34,10 @@ Cypress.Commands.add('createUser', (user)=>{
         method: 'POST',
         url: 'http://localhost:3000/api/Users/',
         body: {
-            email: "user1@test.com",
-            password: "Pass1234",
-            passwordRepeat: "Pass1234",
-            securityAnswer: "some text",
+            email: Cypress.env('login'),
+            password: Cypress.env('password'),
+            passwordRepeat: Cypress.env('password'),
+            securityAnswer: Cypress.env('securityAnswer'),
             securityQuestion: {id: 5, question: "Maternal grandmother's first name?"}            
         },
         failOnStatusCode: false
@@ -44,7 +46,7 @@ Cypress.Commands.add('createUser', (user)=>{
             method: 'POST',
             url: 'http://localhost:3000/api/Users/',
             header: { Authorization: 'Bearer ' + resp.body.token },            
-            body: user,
+            body: user
         })
     })    
 })

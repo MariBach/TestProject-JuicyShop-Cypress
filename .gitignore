@@ -1,3 +1,7 @@
+.screenshots/
+.videos/
+screenshots
+videos
 .node_modules/
 .temp/
 temp
@@ -6,7 +10,7 @@ temp
 .1-getting-started/
 .2-advanced-examples/
 cypress\support\selectors.js
-
+cypress.json
 selectors.js
 
 ## Ignore Visual Studio temporary files, build results, and

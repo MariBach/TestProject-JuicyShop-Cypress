@@ -11,7 +11,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cy:run-spec":"npx cypress run --spec 'cypress/integration/loginPositive.spec.js' --headed",
+    "cy:run:chrome": "npm run cy:run-spec -- --browser chrome",
+    "cy:run:browsers": "npm run cy:run-spec -- --browser chrome & npm run cy:run-spec -- --browser edge"
   },
   "author": "Maryna Bachynska",
   "license": "ISC"
