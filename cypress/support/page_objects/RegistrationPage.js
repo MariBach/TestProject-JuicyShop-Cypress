@@ -1,4 +1,5 @@
 export class RegistrationPage {
+
     getEmail(){
         return cy.get('#emailControl')
     }
@@ -34,6 +35,10 @@ export class RegistrationPage {
     getChooseSecurityQuestion(){
         return cy.get('span.mat-option-text')
     }
+    
+    getSecurityQuestionField(){
+        return cy.get('div[class^="mat-select-value"]')
+    }
 
     getSecurityAnswer(){
         return cy.get('#securityAnswerControl')
@@ -59,31 +64,31 @@ export class RegistrationPage {
     }
 
     fillEmail(email){
-        cy.get('#emailControl').clear().type(email)
+        this.getEmail().clear().type(email)
     }
 
     moveToPasswordField(){
-        cy.get('#passwordControl').click()
+        this.getPassword().click()
     }
 
     fillPassword(password){
-        cy.get('#passwordControl').clear().type(password)
+        this.getPassword().clear().type(password)
     }
 
     moveToRepeatPasswordField(){
-        cy.get('#repeatPasswordControl').click()
+        this.getRepeatPassword().click()
     }
 
     repeatPassword(password){
-        cy.get('#repeatPasswordControl').clear().type(password)
+        this.getRepeatPassword().clear().type(password)
     }
 
     fillSecurityAnswer(answer){
-        cy.get('#securityAnswerControl').clear().type(answer)
+        this.getSecurityAnswer().clear().type(answer)
     }
 
     openSecurityQuestionList(){
-        cy.get('.mat-select-placeholder').click()
+        this.getSecurityQuestion().click()
     }
 
     chooseSecurityQuestion(question){
@@ -94,20 +99,26 @@ export class RegistrationPage {
         })
     }
 
-    getSecurityQuestionField(){
-        return cy.get('div[class^="mat-select-value"]')
-    }
-
     submitRegistration(){
-        cy.get('#registerButton').click()
+        this.getRegisterButton().click()
     }
 
     returnToLoginPage(){
-        cy.get('#alreadyACustomerLink').click()
+        this.getReturnToLoginPage().click()
     }
     
     showPasswordAdvice(){
-        cy.get('.mat-slide-toggle-thumb').click()
+        this.getShowPasswordAdvice().click()
+    }
+
+    initiateUserRegistration(email, password, question, answer){
+        this.fillEmail(email)
+        this.fillPassword(password)
+        this.repeatPassword(password)
+        this.openSecurityQuestionList()
+        this.chooseSecurityQuestion(question)
+        this.fillSecurityAnswer(answer)
+        this.submitRegistration()
     }
 }
 export const onRegistrationPage = new RegistrationPage();

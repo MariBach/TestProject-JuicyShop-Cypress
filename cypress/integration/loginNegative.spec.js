@@ -2,17 +2,17 @@
 import { onHomePage } from "../support/page_objects/homePage.js"
 import { onLoginPage } from "../support/page_objects/loginPage.js"
 
-describe ('Login check', function(){
-    beforeEach (function(){
-        cy.fixture('data').then(function(data){
-           this.data = data;
+describe ('Login check', () => {
+    beforeEach (() => {
+        cy.fixture('data').then(function(data) {
+           this.data = data
         })
         cy.openHomePage()
         onHomePage.openLoginPage()
         cy.createUser()
     })
 
-    it('User can not log in with valid email and invalid password', function(){
+    it.only('User can not log in with valid email and invalid password', function() {
         onLoginPage.login(this.data.email[0], this.data.password[1])
         onLoginPage.getInvalidCredentialsMessage().should('have.text', this.data.errorLoginPage[0])
     })

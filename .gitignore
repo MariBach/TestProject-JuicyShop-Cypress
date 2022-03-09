@@ -1,7 +1,7 @@
 .screenshots/
 .videos/
 screenshots
-videos
+videos/
 .node_modules/
 .temp/
 temp

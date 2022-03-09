@@ -26,13 +26,13 @@
 
 
 Cypress.Commands.add('openHomePage', ()=>{
-    cy.visit(Cypress.env("url"))
+    cy.visit('/')
 })
 
 Cypress.Commands.add('createUser', (user)=>{
     cy.request({
         method: 'POST',
-        url: 'http://localhost:3000/api/Users/',
+        url:Cypress.env('apiUrl'),
         body: {
             email: Cypress.env('login'),
             password: Cypress.env('password'),
@@ -44,11 +44,36 @@ Cypress.Commands.add('createUser', (user)=>{
     }).then((resp) => {
         cy.request({
             method: 'POST',
-            url: 'http://localhost:3000/api/Users/',
+            url: Cypress.env('apiUrl'),
             header: { Authorization: 'Bearer ' + resp.body.token },            
             body: user
         })
     })    
 })
 
+Cypress.Commands.add('loginApiAuthentication', () => {
+    cy.request({
+        method: 'POST', 
+        url: Cypress.env("restUrl"),
+        body: {
+            email: Cypress.env('login'), 
+            password: Cypress.env('password')
+        }
+    }).its('body').then( body => {
+            const token = body.token
+            cy.wrap(token).as('token')
+            cy.visit('/', {
+                onBeforeLoad(win){
+                    win.localStorage.setItem('token', token)
+                }
+            })
+        })
+    })
 
+    Cypress.Commands.add('clearBasket', () => {
+        cy.visit('/')
+        cy.get('button[aria-label$="cart"]').click()
+        cy.get('mat-row').each(($el, index, $list)=>{
+            cy.get('svg[data-icon="trash-alt"]').eq(index).click()
+        })
+    })

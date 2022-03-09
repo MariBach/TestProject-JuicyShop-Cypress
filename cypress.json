@@ -1,8 +1,11 @@
 {
   "defaultCommandTimeout": 10000,
   "pageLoadTimeout": 30000,
+  "baseUrl": "http://localhost:3000/#/",
+  "chromeWebSecurity": false,
   "env": {
-    "url": "http://localhost:3000/#/",
+    "apiUrl": "http://localhost:3000/api/Users/",
+    "restUrl": "http://localhost:3000/rest/user/login",
     "login": "user1@test.com",
     "password": "Pass1234",
     "securityAnswer": "some text"

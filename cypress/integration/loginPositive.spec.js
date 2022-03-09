@@ -5,8 +5,8 @@ import { onLoginPage } from "../support/page_objects/loginPage.js"
 import { onForgotPage } from "../support/page_objects/forgotPasswordPage.js"
 import { randomIndex } from "../support/functions.js"
 
-describe ('Login check', function(){
-    beforeEach (function(){
+describe ('Login check', () => {
+    beforeEach (() => {
         cy.fixture('data').then(function(data){
            this.data = data;
         })

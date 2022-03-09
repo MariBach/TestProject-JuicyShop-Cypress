@@ -36,6 +36,10 @@ export class LoginPage {
         return cy.get('button[aria-label*=" hide"]')
     }
 
+    getRememberMe(){
+        return cy.get('#rememberMe-input')
+    }    
+
     getLoginWithGoogle(){
         return cy.get('#loginButtonGoogle')
     }
@@ -44,20 +48,28 @@ export class LoginPage {
         return cy.get('div.error.ng-star-inserted')
     }
 
+    getInvalidInputMessage(){
+        return cy.get('.mat-error')
+    }
+
     fillEmail(email){
-        cy.get('#email').clear().type(email)
+        this.getEmail().clear().type(email)
     }
 
     fillPassword(password){
-        cy.get('#password').clear().type(password)
+        this.getPassword().clear().type(password)
     }
 
-    navigateToRegistration(){
-        cy.get('a[routerlink="/register"]').click({force: true})
+    fillPasswordAndPressEnter(password){
+        this.getPassword().clear().type(password).type('{enter}')
+    }
+
+    navigateToRegistrationPage(){
+        this.getNavigateToRegister().click({force: true})
     }
 
     submitLogin(){
-        cy.get('#loginButton').click()
+        this.getLoginButton().click()
     }
 
     login(email, password){
@@ -67,11 +79,15 @@ export class LoginPage {
     }
 
     showPassword(){
-        cy.get('button[aria-label$="password"]').click()
+        this.getShowPassword().click()
     }
 
     navigateToForgotPasswordPage(){
-        cy.get('a[routerlink="/forgot-password"]').click({force: true})
+        this.getForgotPassword().click({force: true})
+    }
+
+    chooseRememberMe(){
+        this.getRememberMe().check({force: true})
     }
 }
 export const onLoginPage = new LoginPage();
